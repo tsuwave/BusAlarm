@@ -61,18 +61,62 @@ AlarmKit (iOS 26+) provides:
 - [ ] Actual AlarmKit framework import (verify with Xcode 26)
 - [ ] Test on real iOS 26 device
 
-## GitHub Actions CI
+## GitHub Actions CI/CD
 
-This branch uses GitHub Actions for cloud builds:
-- **Build workflow**: Runs on every push
-- Trigger: `.github/workflows/build.yml`
+We use GitHub Actions for automated builds and TestFlight deployment.
 
-## TestFlight Distribution
+### Automatic Build
 
-Use the deploy workflow (requires Apple Developer secrets):
-1. Go to Actions tab → Deploy to TestFlight
+Every push to `main` or `ios26-alarmkit` triggers a build:
+- View status: https://github.com/tsuwave/BusAlarm/actions
+
+### TestFlight Deployment (Manual)
+
+1. Go to Actions → "Deploy to TestFlight"
 2. Click "Run workflow"
-3. Enter version and build number
+3. Enter version (e.g., 1.0.0) and build number
+4. Click "Run workflow"
+
+### Required GitHub Secrets
+
+Add these in GitHub → Settings → Secrets → Actions:
+
+| Secret | Value | How to Get |
+|--------|-------|------------|
+| `LTA_API_KEY` | Your LTA DataMall API key | https://datamall.lta.gov.sg |
+| `CERTIFICATES_P12` | Base64-encoded Apple Distribution certificate | Export from Keychain |
+| `CERTIFICATES_PASSWORD` | Certificate export password | Set when exporting |
+| `APPSTORE_ISSUER_ID` | App Store Connect Issuer ID | App Store Connect → Users → Keys |
+| `APPSTORE_KEY_ID` | App Store Connect Key ID | App Store Connect → Users → Keys |
+| `APPSTORE_PRIVATE_KEY` | App Store Connect private key content | Download from App Store Connect |
+
+**Delegate task**: If you can't set these up yourself, delegate to your main driver (MacBook Air agent) to:
+1. Generate App Store Connect API key
+2. Export distribution certificate
+3. Add all secrets to GitHub
+
+## Manual TestFlight Distribution
+
+If not using GitHub Actions:
+
+1. **Set up signing**
+   - In Xcode, select BusAlarm target
+   - Go to Signing & Capabilities
+   - Select your Team
+   - Update Bundle Identifier (e.g., `com.yourname.busrun`)
+
+2. **Archive**
+   - Select target device: "Any iOS Device"
+   - Product → Archive
+
+3. **Upload**
+   - In Organizer, select the archive
+   - Distribute App → App Store Connect → Upload
+
+4. **TestFlight**
+   - Go to App Store Connect
+   - Select your app → TestFlight
+   - Add internal testers
 
 ## Backwards Compatibility
 
