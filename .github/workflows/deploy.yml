@@ -1,0 +1,75 @@
+name: Deploy to TestFlight
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number (e.g., 1.0.1)'
+        required: true
+        default: '1.0.0'
+      build_number:
+        description: 'Build number'
+        required: true
+        default: '1'
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: macos-14
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Select Xcode
+      run: sudo xcode-select -s /Applications/Xcode_15.2.app/Contents/Developer
+      
+    - name: Install xcodegen
+      run: brew install xcodegen
+      
+    - name: Generate Project
+      run: xcodegen generate
+      
+    - name: Setup API Key
+      run: |
+        cp Config/Secrets.template.xcconfig Config/Secrets.xcconfig
+        echo "LTA_API_KEY = ${{ secrets.LTA_API_KEY }}" > Config/Secrets.xcconfig
+      
+    - name: Import Certificates
+      uses: apple-actions/import-codesign-certs@v2
+      with:
+        p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+        p12-password: ${{ secrets.CERTIFICATES_PASSWORD }}
+        
+    - name: Download Provisioning Profiles
+      uses: apple-actions/download-provisioning-profiles@v1
+      with:
+        bundle-id: ai.tsuwave.busalarm
+        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+        
+    - name: Archive
+      run: |
+        xcodebuild archive \
+          -project BusAlarm.xcodeproj \
+          -scheme BusAlarm \
+          -archivePath BusAlarm.xcarchive \
+          -destination 'generic/platform=iOS' \
+          MARKETING_VERSION=${{ github.event.inputs.version }} \
+          CURRENT_PROJECT_VERSION=${{ github.event.inputs.build_number }}
+          
+    - name: Export IPA
+      run: |
+        xcodebuild -exportArchive \
+          -archivePath BusAlarm.xcarchive \
+          -exportOptionsPlist ExportOptions.plist \
+          -exportPath ./build
+          
+    - name: Upload to TestFlight
+      uses: apple-actions/upload-testflight-build@v1
+      with:
+        app-path: ./build/BusAlarm.ipa
+        issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+        api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+        api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
