@@ -40,9 +40,43 @@ Codename: **Swell** — the wave building before it breaks.
 3. Request API access
 4. Copy your Account Key
 
-## TestFlight Distribution
+## GitHub Actions CI/CD
 
-To distribute via TestFlight:
+We use GitHub Actions for automated builds and TestFlight deployment.
+
+### Automatic Build
+
+Every push to `main` or `ios26-alarmkit` triggers a build:
+- View status: https://github.com/tsuwave/BusAlarm/actions
+
+### TestFlight Deployment (Manual)
+
+1. Go to Actions → "Deploy to TestFlight"
+2. Click "Run workflow"
+3. Enter version (e.g., 1.0.0) and build number
+4. Click "Run workflow"
+
+### Required GitHub Secrets
+
+Add these in GitHub → Settings → Secrets → Actions:
+
+| Secret | Value | How to Get |
+|--------|-------|------------|
+| `LTA_API_KEY` | Your LTA DataMall API key | https://datamall.lta.gov.sg |
+| `CERTIFICATES_P12` | Base64-encoded Apple Distribution certificate | Export from Keychain |
+| `CERTIFICATES_PASSWORD` | Certificate export password | Set when exporting |
+| `APPSTORE_ISSUER_ID` | App Store Connect Issuer ID | App Store Connect → Users → Keys |
+| `APPSTORE_KEY_ID` | App Store Connect Key ID | App Store Connect → Users → Keys |
+| `APPSTORE_PRIVATE_KEY` | App Store Connect private key content | Download from App Store Connect |
+
+**Delegate task**: If you can't set these up yourself, delegate to your main driver (MacBook Air agent) to:
+1. Generate App Store Connect API key
+2. Export distribution certificate
+3. Add all secrets to GitHub
+
+## Manual TestFlight Distribution
+
+If not using GitHub Actions:
 
 1. **Set up signing**
    - In Xcode, select BusAlarm target
@@ -56,8 +90,7 @@ To distribute via TestFlight:
 
 3. **Upload**
    - In Organizer, select the archive
-   - Distribute App → App Store Connect
-   - Upload
+   - Distribute App → App Store Connect → Upload
 
 4. **TestFlight**
    - Go to App Store Connect
