@@ -69,10 +69,9 @@ Add these in GitHub → Settings → Secrets → Actions:
 | `APPSTORE_KEY_ID` | App Store Connect Key ID | App Store Connect → Users → Keys |
 | `APPSTORE_PRIVATE_KEY` | App Store Connect private key content | Download from App Store Connect |
 
-**Delegate task**: If you can't set these up yourself, delegate to your main driver (MacBook Air agent) to:
-1. Generate App Store Connect API key
-2. Export distribution certificate
-3. Add all secrets to GitHub
+**Who sets this up**: [@ajmalafif](https://github.com/ajmalafif) (Apple Developer account holder)
+
+> **Note**: [@macminimaru](https://github.com/macminimaru) (agent) maintains the codebase but does not have Apple Developer membership. TestFlight deployment requires @ajmalafif's developer credentials.
 
 ## Manual TestFlight Distribution
 
@@ -137,6 +136,13 @@ xcodegen generate
 - Location-based polling used for more frequent updates
 - Requires "Always" location permission for best results
 - TestFlight requires Apple Developer account ($99/year)
+
+## Contributors
+
+| Role | GitHub | Responsibilities |
+|------|--------|------------------|
+| Product Owner | [@ajmalafif](https://github.com/ajmalafif) | Apple Developer account, TestFlight deployment, requirements |
+| Agent Developer | [@macminimaru](https://github.com/macminimaru) | Code maintenance, CI/CD setup, bug fixes |
 
 ---
 
