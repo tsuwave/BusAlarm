@@ -4,6 +4,8 @@
 
 This branch contains AlarmKit integration for system-level alarms that bypass Silent mode and Focus modes on iOS 26+.
 
+**BusRun / Swell** — Bus Alarm for Singapore. Never miss your bus again.
+
 ## What's Different from Main
 
 | Feature | Main Branch | This Branch |
@@ -18,10 +20,29 @@ This branch contains AlarmKit integration for system-level alarms that bypass Si
 ## Core Features
 
 - 🚌 Real-time bus arrival via LTA DataMall API
-- ⏱️ Live Activity countdown on Lock Screen & Dynamic Island (iOS 16.1+)
+- ⏱️ Live Activity countdown on Lock Screen & Dynamic Island
 - 🔔 Smart alarms with configurable warnings (2/5/10 min)
 - 🎯 Background monitoring with location updates
 - 📍 Save favorite stops & routes
+- ⏰ **AlarmKit system alarms** — fire even if app killed
+
+## Quick Start
+
+### Requirements
+- macOS with **Xcode 26.0 beta**
+- iOS 26.0 beta Simulator or device
+- AlarmKit framework (bundled with iOS 26 SDK)
+
+### Build
+```bash
+git clone https://github.com/tsuwave/BusAlarm.git
+cd BusAlarm
+git checkout ios26-alarmkit
+cp Config/Secrets.template.xcconfig Config/Secrets.xcconfig
+# Add your LTA API key to Config/Secrets.xcconfig
+xcodegen generate
+open BusAlarm.xcodeproj
+```
 
 ## AlarmKit Overview
 
@@ -34,35 +55,24 @@ AlarmKit (iOS 26+) provides:
 
 ## Implementation Status
 
-- [x] AlarmKitService stub with API structure
+- [x] AlarmKitService with full API structure
 - [x] Info.plist NSAlarmKitUsageDescription
-- [x] BusMonitorService integration points
-- [ ] Actual AlarmKit framework import (waiting on Xcode 26)
-- [ ] Real AlarmManager implementation
-- [ ] Alarm scheduling/cancellation
-- [ ] Background alarm persistence
+- [x] BusMonitorService integration
+- [ ] Actual AlarmKit framework import (verify with Xcode 26)
+- [ ] Test on real iOS 26 device
 
-## Building
+## GitHub Actions CI
 
-This branch requires:
-- macOS with Xcode 26.0 beta
-- iOS 26.0 beta Simulator or device
-- AlarmKit framework (bundled with iOS 26 SDK)
+This branch uses GitHub Actions for cloud builds:
+- **Build workflow**: Runs on every push
+- Trigger: `.github/workflows/build.yml`
 
-### Quick Start
+## TestFlight Distribution
 
-1. Clone the repo
-2. Copy `Config/Secrets.template.xcconfig` to `Config/Secrets.xcconfig`
-3. Add your LTA DataMall API key from https://datamall.lta.gov.sg
-4. Open `BusAlarm.xcodeproj` in Xcode 26
-5. Build & run
-
-## Migration from Main
-
-The main changes are in:
-- `TsuWave/Features/Alarm/AlarmKitService.swift` - Full implementation
-- `TsuWave/Core/Services/BusMonitorService.swift` - AlarmKit integration
-- `TsuWave/Resources/Info.plist` - NSAlarmKitUsageDescription
+Use the deploy workflow (requires Apple Developer secrets):
+1. Go to Actions tab → Deploy to TestFlight
+2. Click "Run workflow"
+3. Enter version and build number
 
 ## Backwards Compatibility
 
@@ -70,6 +80,19 @@ This branch maintains a fallback to Local Notifications for:
 - Pre-iOS 26 devices
 - If AlarmKit permission is denied
 - If AlarmKit scheduling fails
+
+## Migration from Main
+
+The main changes are in:
+- `TsuWave/Features/Alarm/AlarmKitService.swift` — Full AlarmKit implementation
+- `TsuWave/Core/Services/BusMonitorService.swift` — AlarmKit integration points
+- `TsuWave/Resources/Info.plist` — NSAlarmKitUsageDescription
+
+## Test Bus Stops
+
+- `59009` — Orchard (Bus 14)
+- `75009` — Tampines (Bus 31)
+- `46009` — Woodlands
 
 ---
 
