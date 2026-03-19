@@ -55,17 +55,6 @@
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Swell needs location access for background monitoring.</string>
     
-    <!-- Notification Permissions -->
-    <key>UNUserNotificationCenter</key>
-    <dict>
-        <key>AuthorizationOptions</key>
-        <array>
-            <string>Alert</string>
-            <string>Sound</string>
-            <string>Badge</string>
-        </array>
-    </dict>
-    
     <!-- Background Modes -->
     <key>UIBackgroundModes</key>
     <array>
