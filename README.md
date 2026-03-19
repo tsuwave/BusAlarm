@@ -1,40 +1,62 @@
-# Swell
+# Swell (iOS 26 AlarmKit Branch)
 
-**TsuWave | Bus Arrival Alarm for Singapore**
+**⚠️ Experimental Branch: iOS 26 AlarmKit Integration**
 
-Never miss your bus again. Swell tracks your bus arrival in real-time and alerts you when it's time to head to the stop.
+This branch contains AlarmKit integration for system-level alarms that bypass Silent mode and Focus modes on iOS 26+.
 
-## Features
+## What's Different from Main
 
-- 🚌 Real-time bus arrival via LTA DataMall API
-- ⏱️ Live Activity countdown on Lock Screen & Dynamic Island
-- 🔔 Smart alarms with 2/5/10 minute warnings
-- 🎯 Background monitoring with location updates
-- 📍 Save favorite stops & routes
+| Feature | Main Branch | This Branch |
+|---------|-------------|-------------|
+| Min iOS Version | 16.1 | 26.0 |
+| Alarms | Local Notifications | AlarmKit System Alarms |
+| Silent Mode Bypass | ❌ | ✅ |
+| Focus Mode Bypass | ❌ | ✅ |
+| Full-screen Alarm UI | ❌ | ✅ |
+| Apple Watch Support | ❌ | ✅ |
 
-## Requirements
+## AlarmKit Overview
 
-- iOS 16.1+ (main branch)
-- iOS 26+ (alarmkit branch - experimental)
-- Xcode 14+
-- LTA DataMall API key
+AlarmKit (iOS 26+) provides:
+- System-level alarms that fire even if app is killed
+- Bypasses Silent mode and all Focus modes
+- Full-screen alarm UI with snooze/stop
+- Lock Screen, Dynamic Island, and Apple Watch visibility
+- No special Apple entitlement required (unlike Critical Alerts)
 
-## Setup
+## Implementation Status
 
-1. Clone the repo
-2. Copy `Config/Secrets.template.xcconfig` to `Config/Secrets.xcconfig`
-3. Add your LTA DataMall API key
-4. Build & run
+- [x] AlarmKitService stub with API structure
+- [x] Info.plist NSAlarmKitUsageDescription
+- [x] BusMonitorService integration points
+- [ ] Actual AlarmKit framework import (waiting on Xcode 26)
+- [ ] Real AlarmManager implementation
+- [ ] Alarm scheduling/cancellation
+- [ ] Background alarm persistence
 
-## Branches
+## Building
 
-- `main` — Stable version using Live Activities + Local Notifications (iOS 16.1+)
-- `ios26-alarmkit` — Experimental AlarmKit integration (iOS 26+)
+This branch requires:
+- macOS with Xcode 26.0 beta
+- iOS 26.0 beta Simulator or device
+- AlarmKit framework (bundled with iOS 26 SDK)
 
-## Codename Origin
+## Migration from Main
 
-*Swell* — the wave building before it breaks. Just like your alarm swelling as the bus approaches.
+The main changes are in:
+- `TsuWave/Features/Alarm/AlarmKitService.swift` - Full implementation
+- `TsuWave/Core/Services/BusMonitorService.swift` - AlarmKit integration
+- `TsuWave/Resources/Info.plist` - NSAlarmKitUsageDescription
+
+## Backwards Compatibility
+
+This branch maintains a fallback to Local Notifications for:
+- Pre-iOS 26 devices
+- If AlarmKit permission is denied
+- If AlarmKit scheduling fails
 
 ---
+
+⚠️ **Note:** AlarmKit APIs are based on preliminary documentation and may change. Verify with latest iOS 26 SDK before shipping.
 
 Built with 🌊 by TsuWave

@@ -55,16 +55,9 @@
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Swell needs location access for background monitoring.</string>
     
-    <!-- Notification Permissions -->
-    <key>UNUserNotificationCenter</key>
-    <dict>
-        <key>AuthorizationOptions</key>
-        <array>
-            <string>Alert</string>
-            <string>Sound</string>
-            <string>Badge</string>
-        </array>
-    </dict>
+    <!-- AlarmKit Permission (iOS 26+) -->
+    <key>NSAlarmKitUsageDescription</key>
+    <string>Swell uses AlarmKit to ensure you never miss your bus, even when your phone is in Silent mode or a Focus is active.</string>
     
     <!-- Background Modes -->
     <key>UIBackgroundModes</key>
