@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13037DB2D2E7C8AFFCA76FFF /* AlarmKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B5126B1B8BBA74D6F50C93 /* AlarmKitService.swift */; };
+		4B3853B7E8A31FD0ADDEE7C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22ED1086A8C7946EF63D7249 /* Assets.xcassets */; };
+		542B79803699C71323B592FE /* TsuWaveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A91794EF05882CC60A34A /* TsuWaveApp.swift */; };
+		92E8F4E9FD48452C39CD9FF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242FB85D0D81159743C230E5 /* ContentView.swift */; };
+		AC7A85E7FE0541BC4FF6E982 /* BusArrival.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2292C0C4C3DE5C774708899F /* BusArrival.swift */; };
+		B7635E3B09B894E9AC4C496D /* LTABusClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A4246656C556CD3FDF997C /* LTABusClient.swift */; };
+		C9FA9CB9FEC85E1D8DBD68B3 /* BusArrivalLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E8CBF0A687CCC6A2A379D /* BusArrivalLiveActivity.swift */; };
+		DEFC7CD8D6DC0F92234897F8 /* BusMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3760FFB79FDCA593F0793910 /* BusMonitorService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00A4246656C556CD3FDF997C /* LTABusClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTABusClient.swift; sourceTree = "<group>"; };
+		048A91794EF05882CC60A34A /* TsuWaveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TsuWaveApp.swift; sourceTree = "<group>"; };
+		2292C0C4C3DE5C774708899F /* BusArrival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusArrival.swift; sourceTree = "<group>"; };
+		22ED1086A8C7946EF63D7249 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		242FB85D0D81159743C230E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3760FFB79FDCA593F0793910 /* BusMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMonitorService.swift; sourceTree = "<group>"; };
+		4A17EC7E4826F5321AD1A56E /* BusAlarm.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = BusAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89B5126B1B8BBA74D6F50C93 /* AlarmKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmKitService.swift; sourceTree = "<group>"; };
+		8C7E8CBF0A687CCC6A2A379D /* BusArrivalLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusArrivalLiveActivity.swift; sourceTree = "<group>"; };
+		C4411B84AF0C010B5BE9AF74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1CD43A4546A8B17C6020F13A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				22ED1086A8C7946EF63D7249 /* Assets.xcassets */,
+				C4411B84AF0C010B5BE9AF74 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		25326A0200E35AA79354BF02 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3760FFB79FDCA593F0793910 /* BusMonitorService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		34BBFB6F44E19782BDD5FC11 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				00A4246656C556CD3FDF997C /* LTABusClient.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3FE90531B1295F54B439FAB6 /* TsuWave */ = {
+			isa = PBXGroup;
+			children = (
+				51A5F7676C3D73E0F1431EEF /* App */,
+				BB4524ED321C28C70560E421 /* Core */,
+				B299C23842B7EB5CA81740EE /* Features */,
+				1CD43A4546A8B17C6020F13A /* Resources */,
+			);
+			path = TsuWave;
+			sourceTree = "<group>";
+		};
+		51A5F7676C3D73E0F1431EEF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				242FB85D0D81159743C230E5 /* ContentView.swift */,
+				048A91794EF05882CC60A34A /* TsuWaveApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		78F84C35D95373F68024C0BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A17EC7E4826F5321AD1A56E /* BusAlarm.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94741ADB15E74D14D7EE9EEE /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				89B5126B1B8BBA74D6F50C93 /* AlarmKitService.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		B0B2A4CA6F2861201605CF47 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2292C0C4C3DE5C774708899F /* BusArrival.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B299C23842B7EB5CA81740EE /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				94741ADB15E74D14D7EE9EEE /* Alarm */,
+				B9F8B3D5155915C98DEBB22B /* LiveActivity */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B9F8B3D5155915C98DEBB22B /* LiveActivity */ = {
+			isa = PBXGroup;
+			children = (
+				8C7E8CBF0A687CCC6A2A379D /* BusArrivalLiveActivity.swift */,
+			);
+			path = LiveActivity;
+			sourceTree = "<group>";
+		};
+		BB4524ED321C28C70560E421 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				34BBFB6F44E19782BDD5FC11 /* API */,
+				B0B2A4CA6F2861201605CF47 /* Models */,
+				25326A0200E35AA79354BF02 /* Services */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		FE0F35E26A46D1A41DD9A377 = {
+			isa = PBXGroup;
+			children = (
+				22ED1086A8C7946EF63D7249 /* Assets.xcassets */,
+				3FE90531B1295F54B439FAB6 /* TsuWave */,
+				78F84C35D95373F68024C0BC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5FA62062F2EE680F1241AB6 /* BusAlarm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CCCCF384A4A1A4D832D0724 /* Build configuration list for PBXNativeTarget "BusAlarm" */;
+			buildPhases = (
+				C7BE8F75DE0A2F83561F9788 /* Sources */,
+				882A25F530344FF9BB9823DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BusAlarm;
+			packageProductDependencies = (
+			);
+			productName = BusAlarm;
+			productReference = 4A17EC7E4826F5321AD1A56E /* BusAlarm.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67ACEC28B0757870A18A1465 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A5FA62062F2EE680F1241AB6 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 410A295CF455B781DA596A18 /* Build configuration list for PBXProject "BusAlarm" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = FE0F35E26A46D1A41DD9A377;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 78F84C35D95373F68024C0BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5FA62062F2EE680F1241AB6 /* BusAlarm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		882A25F530344FF9BB9823DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B3853B7E8A31FD0ADDEE7C5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7BE8F75DE0A2F83561F9788 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13037DB2D2E7C8AFFCA76FFF /* AlarmKitService.swift in Sources */,
+				AC7A85E7FE0541BC4FF6E982 /* BusArrival.swift in Sources */,
+				C9FA9CB9FEC85E1D8DBD68B3 /* BusArrivalLiveActivity.swift in Sources */,
+				DEFC7CD8D6DC0F92234897F8 /* BusMonitorService.swift in Sources */,
+				92E8F4E9FD48452C39CD9FF2 /* ContentView.swift in Sources */,
+				B7635E3B09B894E9AC4C496D /* LTABusClient.swift in Sources */,
+				542B79803699C71323B592FE /* TsuWaveApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6B324F0B31CA344C34F70E22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BusAlarm.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = TsuWave/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -enable-experimental-concurrency";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.tsuwave.busalarm;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		94BAD5C79FBFEDD752B0497B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EFA972028D11EB64962258A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BusAlarm.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = TsuWave/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -enable-experimental-concurrency";
+				PRODUCT_BUNDLE_IDENTIFIER = ai.tsuwave.busalarm;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FC111B2E614B2A1F92F311FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0CCCCF384A4A1A4D832D0724 /* Build configuration list for PBXNativeTarget "BusAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFA972028D11EB64962258A4 /* Debug */,
+				6B324F0B31CA344C34F70E22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		410A295CF455B781DA596A18 /* Build configuration list for PBXProject "BusAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94BAD5C79FBFEDD752B0497B /* Debug */,
+				FC111B2E614B2A1F92F311FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67ACEC28B0757870A18A1465 /* Project object */;
+}

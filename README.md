@@ -15,6 +15,14 @@ This branch contains AlarmKit integration for system-level alarms that bypass Si
 | Full-screen Alarm UI | ❌ | ✅ |
 | Apple Watch Support | ❌ | ✅ |
 
+## Core Features
+
+- 🚌 Real-time bus arrival via LTA DataMall API
+- ⏱️ Live Activity countdown on Lock Screen & Dynamic Island (iOS 16.1+)
+- 🔔 Smart alarms with configurable warnings (2/5/10 min)
+- 🎯 Background monitoring with location updates
+- 📍 Save favorite stops & routes
+
 ## AlarmKit Overview
 
 AlarmKit (iOS 26+) provides:
@@ -40,6 +48,14 @@ This branch requires:
 - macOS with Xcode 26.0 beta
 - iOS 26.0 beta Simulator or device
 - AlarmKit framework (bundled with iOS 26 SDK)
+
+### Quick Start
+
+1. Clone the repo
+2. Copy `Config/Secrets.template.xcconfig` to `Config/Secrets.xcconfig`
+3. Add your LTA DataMall API key from https://datamall.lta.gov.sg
+4. Open `BusAlarm.xcodeproj` in Xcode 26
+5. Build & run
 
 ## Migration from Main
 
