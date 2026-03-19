@@ -1,8 +1,10 @@
-# Swell
+# BusRun / Swell
 
-**TsuWave | Bus Arrival Alarm for Singapore**
+**Bus Alarm for Singapore**
 
-Never miss your bus again. Swell tracks your bus arrival in real-time and alerts you when it's time to head to the stop.
+Never miss your bus again. BusRun tracks your bus arrival in real-time and alerts you when it's time to head to the stop.
+
+Codename: **Swell** — the wave building before it breaks.
 
 ## Features
 
@@ -12,27 +14,96 @@ Never miss your bus again. Swell tracks your bus arrival in real-time and alerts
 - 🎯 Background monitoring with location updates
 - 📍 Save favorite stops & routes
 
-## Requirements
+## Quick Start (Build for Simulator)
 
-- iOS 16.1+ 
-- Xcode 14+
-- LTA DataMall API key
+1. **Clone**
+   ```bash
+   git clone https://github.com/tsuwave/BusAlarm.git
+   cd BusAlarm
+   ```
+
+2. **Add API Key**
+   ```bash
+   cp Config/Secrets.template.xcconfig Config/Secrets.xcconfig
+   # Edit Config/Secrets.xcconfig and add your LTA API key
+   ```
+
+3. **Open & Build**
+   - Open `BusAlarm.xcodeproj` in Xcode 15 or 16
+   - Select iPhone 15 Pro simulator
+   - Press Cmd+R
+
+## Getting LTA API Key
+
+1. Go to https://datamall.lta.gov.sg/content/datamall/en/request-for-api.html
+2. Register an account
+3. Request API access
+4. Copy your Account Key
+
+## TestFlight Distribution
+
+To distribute via TestFlight:
+
+1. **Set up signing**
+   - In Xcode, select BusAlarm target
+   - Go to Signing & Capabilities
+   - Select your Team
+   - Update Bundle Identifier (e.g., `com.yourname.busrun`)
+
+2. **Archive**
+   - Select target device: "Any iOS Device"
+   - Product → Archive
+
+3. **Upload**
+   - In Organizer, select the archive
+   - Distribute App → App Store Connect
+   - Upload
+
+4. **TestFlight**
+   - Go to App Store Connect
+   - Select your app → TestFlight
+   - Add internal testers
 
 ## Branches
 
-- `main` — Stable version using Live Activities + Local Notifications (iOS 16.1+)
-- `ios26-alarmkit` — Experimental AlarmKit integration (iOS 26+). See that branch for details.
+- `main` — **Ready now** — iOS 16.1+ with Live Activities + Local Notifications
+- `ios26-alarmkit` — Experimental — iOS 26+ with AlarmKit system alarms
 
-## Setup
+## Test Bus Stops
 
-1. Clone the repo
-2. Copy `Config/Secrets.template.xcconfig` to `Config/Secrets.xcconfig`
-3. Add your LTA DataMall API key from https://datamall.lta.gov.sg
-4. Build & run in Xcode
+- `59009` — Orchard (Bus 14)
+- `75009` — Tampines (Bus 31)
+- `46009` — Woodlands
 
-## Codename Origin
+## Project Structure
 
-*Swell* — the wave building before it breaks. Just like your alarm swelling as the bus approaches.
+```
+TsuWave/
+├── App/                 # SwiftUI app entry point
+├── Core/
+│   ├── API/            # LTA API client
+│   ├── Models/         # Data models
+│   └── Services/       # Bus monitoring service
+├── Features/
+│   ├── Alarm/          # Alarm service (stubs in main)
+│   └── LiveActivity/   # Live Activity widget
+└── Resources/          # Info.plist, Assets
+```
+
+## Regenerating Xcode Project
+
+If you modify `project.yml`:
+
+```bash
+xcodegen generate
+```
+
+## Known Limitations
+
+- Background refresh limited by iOS (15 min - 6 hours)
+- Location-based polling used for more frequent updates
+- Requires "Always" location permission for best results
+- TestFlight requires Apple Developer account ($99/year)
 
 ---
 
